@@ -76,19 +76,22 @@ def extractBlocks(html):
             htmlblocks.append(a)
     return htmlblocks
 
+def calcTagsFrom(twikedparablocks):
+    tagholder = []
+    artblockcount = Counter({})
+    for tparablock in twikedparablocks:
+        a = tparablock.split()
+        artblockcount += Counter(a)
+    mostcom = artblockcount.most_common(5)
+    for key, val in mostcom:
+        tagholder.append(str(key))
+    return tagholder
 
 def getTags(url):
+    tagstoreturn = []
     html = getHTMLFromURL(url)
     htmlblocks = extractBlocks(html)
     cleanblocks = doPreClean(htmlblocks)
     parablocks = paraTest(0,cleanblocks) #returns suspected as paras ..paraqualification
     twikedparablocks = paraBlocksCleanUp(parablocks)
-    artblockcount = Counter({})
-    for tparablock in twikedparablocks:
-        a = tparablock.split()
-        artblockcount += Counter(a)
-    tagstoreturn = []
-    mostcom = artblockcount.most_common(5)
-    for key,val in mostcom:
-        tagstoreturn.append(str(key))
-    return tagstoreturn
+    return calcTagsFrom(twikedparablocks)
