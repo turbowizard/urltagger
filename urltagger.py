@@ -23,16 +23,13 @@ def cleanExtraSpaces(sample):
     return re.sub(' +', ' ', sample)
 
 def stopWordFilter(con):
-    #needs some implementation for retriving stop list
-    stopwords = ['to','it','if','the','in','is','all','go','an','a','what','will','have','that',
-                 'by','as','and','or','for','from','of']
-    #print con
+    #try except empty list nti
+    global stopwordlist
     split = con.split()
     cleaned = ""
     for w in split:
-        if w not in stopwords:
+        if w not in stopwordlist:
             cleaned+=w+' '
-    #print cleaned
     return cleaned
 
 #text clean up for analysis
@@ -87,11 +84,21 @@ def calcTagsFrom(twikedparablocks):
         tagholder.append(str(key))
     return tagholder
 
+def initStopWordList():
+    global stopwordlist
+    with open('stopwords.txt') as f:
+        for line in f:
+            stopwordlist.append(line[:-1])
+    print stopwordlist
+
+
 def getTags(url):
-    tagstoreturn = []
     html = getHTMLFromURL(url)
     htmlblocks = extractBlocks(html)
     cleanblocks = doPreClean(htmlblocks)
     parablocks = paraTest(0,cleanblocks) #returns suspected as paras ..paraqualification
+    initStopWordList() #used in paraBlocksCleanUp
     twikedparablocks = paraBlocksCleanUp(parablocks)
     return calcTagsFrom(twikedparablocks)
+
+stopwordlist = []
