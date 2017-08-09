@@ -2,6 +2,7 @@ import urllib2
 from bs4 import BeautifulSoup
 from collections import Counter
 import re
+from test import testurl
 
 
 #rules set for paragraph
@@ -25,7 +26,7 @@ def cleanExtraSpaces(sample):
 def stopWordFilter(con):
     #needs some implementation for retriving stop list
     stopwords = ['to','it','if','the','in','is','all','go','an','a','what','will','have','that',
-                 'by','as','and','or','for','from']
+                 'by','as','and','or','for','from','of']
     #print con
     split = con.split()
     cleaned = ""
@@ -83,14 +84,18 @@ def getTags(url):
     cleanblocks = doPreClean(htmlblocks)
     parablocks = paraTest(0,cleanblocks) #returns suspected as paras ..paraqualification
     twikedparablocks = paraBlocksCleanUp(parablocks)
+    artblockcount = Counter({})
     for tparablock in twikedparablocks:
         a = tparablock.split()
-        print Counter(a)
+        artblockcount += Counter(a)
+    tagstoreturn = []
+    mostcom = artblockcount.most_common(5)
+    for key,val in mostcom:
+        tagstoreturn.append(str(key))
+    return tagstoreturn
 
 
-
-url = "http://study.com/academy/lesson/what-is-software-prototyping-definition-models-tools.html"
+url = testurl
 urltags = []
-getTags(url)
-#tagText(cleanUpContent(samtext))
+print getTags(url)
 
