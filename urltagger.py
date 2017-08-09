@@ -1,8 +1,7 @@
 import urllib2
-from bs4 import BeautifulSoup
 from collections import Counter
 import re
-from test import testurl
+from bs4 import BeautifulSoup
 
 
 #rules set for paragraph
@@ -68,7 +67,6 @@ def doPreClean(blockstoclean):
     return cleanblocks
 
 
-
 def extractBlocks(html):
     htmlblocks = []
     soup = BeautifulSoup(html, 'html.parser')
@@ -77,6 +75,7 @@ def extractBlocks(html):
             a = htmlblock.text
             htmlblocks.append(a)
     return htmlblocks
+
 
 def getTags(url):
     html = getHTMLFromURL(url)
