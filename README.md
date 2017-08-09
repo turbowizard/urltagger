@@ -3,7 +3,7 @@
 This tool was created to retrive "tags" for any given url</br>
 used for content comparison and suggestions.</br>
 "tags" are lables/keyword used to describe textual content.</be>
-This also can be used for data gathering.</br>
+This also can be used for data gathering.
 </br></br>
 Logics:</br>
     input url</br>
@@ -23,4 +23,5 @@ Plug and play:</br>
     edit test.py</br>
         set url for testurl var</br>
         save file </br>
-     from console: python main.py
+     from console: python main.py</br></br>
+feddbacks are appreciated!
