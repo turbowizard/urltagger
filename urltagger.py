@@ -73,12 +73,31 @@ def extractBlocks(html):
             htmlblocks.append(a)
     return htmlblocks
 
+def getCountLog():
+    global countlog
+    dictcon = []
+    for c in countlog:
+        dictcon.append(dict(c.most_common()))
+    return dictcon
+
+#more readable style
+def showCountLog():
+    countl = getCountLog()
+    for d in countl:
+        line = ""
+        for i in d:
+            line += i.encode('ascii', 'ignore')+' '+str(d[i])+'  ,'
+        print line
+
 def calcTagsFrom(twikedparablocks):
+    global countlog
     tagholder = []
     artblockcount = Counter({})
     for tparablock in twikedparablocks:
-        a = tparablock.split()
-        artblockcount += Counter(a)
+        splittparablock = tparablock.split()
+        splittparablockcount = Counter(splittparablock)
+        artblockcount += splittparablockcount
+        countlog.append(splittparablockcount)
     mostcom = artblockcount.most_common(5)
     for key, val in mostcom:
         tagholder.append(str(key))
@@ -89,7 +108,6 @@ def initStopWordList():
     with open('stopwords.txt') as f:
         for line in f:
             stopwordlist.append(line[:-1])
-    print stopwordlist
 
 
 def getTags(url):
@@ -102,3 +120,4 @@ def getTags(url):
     return calcTagsFrom(twikedparablocks)
 
 stopwordlist = []
+countlog = []
