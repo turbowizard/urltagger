@@ -16,7 +16,7 @@ Logics:</br>
 
 Example:</br>
     testurl = "https://en.wikipedia.org/wiki/Python_(programming_language)"</br>
-    ['python', 'are', 'language', 'with', 'c']</be></br>
+    ['python', 'a', 'language', 'c', 'programming', '2', 'code']</be></br>
 
 Plug and play:</br>
     download or clone https://github.com/turbowizard/urltagger</br>
