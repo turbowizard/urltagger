@@ -1,5 +1,5 @@
 # urltagger
-"url tagger" is a tool for web page content analysis written in Python2.</br>
+"url tagger" is a tool for web page content analysis written in Python2.7</br>
 This tool was created to retrive "tags" for any given url</br>
 used for content comparison and suggestions.</br>
 "tags" are lables/keyword used to describe textual content.</be>
@@ -24,4 +24,4 @@ Plug and play:</br>
         set url for testurl var</br>
         save file </br>
      from console: python main.py</br></br>
-feddbacks are appreciated!
+feedbacks are appreciated!
