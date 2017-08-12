@@ -1,7 +1,8 @@
-import urltagger
+from urltagger import urltagger
+import turbotagger #
+
 from test import testurl
 url = testurl
-print url
-urltags = []
-print urltagger.getTags(url)
-print urltagger.showCountLog()
+result = urltagger(url,turbotagger) # for default processing
+print result.url
+print result.sum()
