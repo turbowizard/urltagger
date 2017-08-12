@@ -9,10 +9,11 @@ Example:</br>
     testurl = "https://en.wikipedia.org/wiki/Python_(programming_language)"</br>
     ['python', 'a', 'language', 'c', 'programming', 'code', 'languages']</br></br>
 
-Plug and play:</br>
+check out urltagger.pythonanywhere.com ,urltagger flask interface (outdated source).</br></br>
+
+Plug and Play:</br>
     download or clone https://github.com/turbowizard/urltagger</br>
     edit test.py</br>
         set url for testurl var</br>
         save file </br>
         play main.py</br></br>
-feedbacks are appreciated!
