@@ -5,11 +5,7 @@ by using the "turbotagger" which is a set of functions to process html into "tag
 "tags" are the compactly described content returned as a result of key-word</br>
 analysis concept function "turbotagger".
 </br></br>
-Example:</br>
-    testurl = "https://en.wikipedia.org/wiki/Python_(programming_language)"</br>
-    ['python', 'a', 'language', 'c', 'programming', 'code', 'languages']</br></br>
 
-check out urltagger.pythonanywhere.com ,urltagger flask interface (outdated source).</br></br>
 
 Plug and Play:</br>
     download or clone https://github.com/turbowizard/urltagger</br>
